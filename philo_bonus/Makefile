@@ -6,7 +6,7 @@
 #    By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 15:41:04 by tliangso          #+#    #+#              #
-#    Updated: 2022/11/11 13:37:44 by tliangso         ###   ########.fr        #
+#    Updated: 2022/12/01 14:48:29 by tliangso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,13 +29,13 @@ TESTER3		=
 TESTER4		=
 
 ### SOURCE FILE ###
-SRC		=	philo_bonus.c what_time_is_it.c
+SRC		=	philo_bonus.c philo_utils.c exit_handle.c init.c input.c routine.c sem.c time.c
 
 BONUS	=
 
 SHARE	=
 
-LIBFT	= libft.c
+LIBFT	=
 
 ### PATH ###
 SRCS		= ${addprefix ${DIRSRC}, ${SRC}}
