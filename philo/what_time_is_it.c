@@ -6,43 +6,42 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 14:37:53 by tliangso          #+#    #+#             */
-/*   Updated: 2022/11/11 13:29:05 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:15:39 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"philo.h"
 
-long long	get_time(void)
-{
-	struct timeval	time;
-
-	gettimeofday(&time, NULL);
-	return (time.tv_sec * 1000000 + time.tv_usec);
-}
-
 long long	delta_time(long long time)
 {
-	if (time > 0)
-		return (get_time() - time);
-	return (0);
+	struct timeval	tv;
+	long long		delta;
+
+	gettimeofday(&tv, NULL);
+	delta = (tv.tv_sec * 1000) + (tv.tv_usec / 1000);
+	return (delta - time);
+}
+
+long long	get_time(void)
+{
+	struct timeval	tv;
+
+	gettimeofday(&tv, NULL);
+	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
 void	exec_action(long long time)
 {
-	my_usleep(time * 1000);
+	my_usleep(time);
 }
 
 void	my_usleep(long long time)
 {
-	struct timeval	tval;
-	long long		cur_time;
+	long long	start;
 
-	gettimeofday(&tval, NULL);
-	cur_time = (tval.tv_sec * 1000000) + tval.tv_usec;
-	usleep(time * 0.80);
-	while ((tval.tv_sec * 1000000 + tval.tv_usec) - cur_time <= time)
+	start = get_time();
+	while (get_time() - start < time)
 	{
-		gettimeofday(&tval, NULL);
-		usleep(1);
+		usleep(200);
 	}
 }

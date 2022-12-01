@@ -6,11 +6,12 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 13:12:52 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/16 10:22:41 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:21:40 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <unistd.h>
 
 int	join_threads(t_env *env)
 {
@@ -48,20 +49,20 @@ int	create_threads(t_env *env)
 
 	i = 0;
 	env->philo_dead = FALSE;
-	env->t0 = get_time();
 	if (pthread_mutex_init(&env->write, NULL) != FALSE)
 		return (FALSE);
+	env->t0 = get_time();
 	while (i < env->input.num_philo)
 	{
 		env->n_thread = i;
 		if (pthread_create(&env->philo[i].thread, NULL, &routine, env) != FALSE)
 			return (FALSE);
 		i++;
-		my_usleep(1000);
+		usleep(10);
 	}
 	if (pthread_create(&env->checker, NULL, &anyone_die_yet, env) != FALSE)
 		return (FALSE);
-	my_usleep(1000);
+	usleep(10);
 	if (join_threads(env) == FALSE)
 		return (FALSE);
 	return (TRUE);
