@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 14:44:34 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/14 14:48:55 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:28:51 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	create_forks(t_env *env)
 			return (FALSE);
 		i++;
 	}
+	if (pthread_mutex_init(&env->table, NULL) != 0)
+		return (FALSE);
 	return (TRUE);
 }
 

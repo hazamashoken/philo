@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 12:03:28 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/16 10:22:27 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:27:57 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_env
 	t_philo			*philo;
 	pthread_t		checker;
 	pthread_mutex_t	*forks;
+	pthread_mutex_t	table;
 	pthread_mutex_t	write;
 }					t_env;
 

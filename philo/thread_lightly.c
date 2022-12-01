@@ -6,12 +6,11 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 13:12:52 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/01 15:21:40 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:27:31 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-#include <unistd.h>
 
 int	join_threads(t_env *env)
 {
