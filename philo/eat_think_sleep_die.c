@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 12:30:02 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/01 15:29:57 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/01 23:06:23 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ int	are_you_dead(t_env *env, int *i)
 	if (*i == env->input.num_philo)
 		*i = 0;
 	time = delta_time(env->philo[*i].time_to_die);
+	// printf("time: %lld %d\n", time, env->input.time_to_die);
+
 	if (time > env->input.time_to_die)
 	{
 		philo_print(env, env->philo[*i].id, DIED, RED);

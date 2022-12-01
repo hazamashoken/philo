@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:32:48 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/01 14:55:30 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/02 00:49:24 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 
 long long	delta_time(long long time)
 {
-	struct timeval	tv;
-	long long		delta;
-
-	gettimeofday(&tv, NULL);
-	delta = (tv.tv_sec * 1000) + (tv.tv_usec / 1000);
-	return (delta - time);
+	return (get_time() - time);
 }
 
 long long	get_time(void)

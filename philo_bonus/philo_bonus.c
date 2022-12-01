@@ -6,17 +6,19 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:07:45 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/01 14:54:21 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/02 00:53:13 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
+#include <unistd.h>
 
 int	create_process(t_env *env)
 {
 	int	i;
 
 	i = 0;
+
 	while (i < env->input.num_philo)
 	{
 		env->philo.id++;
@@ -44,8 +46,12 @@ void	destroy_free_env(t_env *env)
 		waitpid(-1, &status, 0);
 		if (WEXITSTATUS(status) == PHILO_DIED)
 		{
+			i = 0;
 			while (i < env->input.num_philo)
-				kill(env->pid[i++], SIGKILL);
+			{
+				printf("%d\n", env->pid[i]);
+				kill(env->pid[i++], SIGTERM);
+			}
 			break ;
 		}
 		i++;
@@ -54,6 +60,8 @@ void	destroy_free_env(t_env *env)
 		sem_close(env->forks);
 	if (env->table != SEM_FAILED)
 		sem_close(env->table);
+	if (env->print != SEM_FAILED)
+		sem_close(env->print);
 	if (env->pid != NULL)
 		free(env->pid);
 }
