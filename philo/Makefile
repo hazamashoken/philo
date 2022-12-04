@@ -6,13 +6,13 @@
 #    By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 15:41:04 by tliangso          #+#    #+#              #
-#    Updated: 2022/10/18 17:07:34 by tliangso         ###   ########.fr        #
+#    Updated: 2022/12/04 19:36:46 by tliangso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### EXECUTABLE ###
 NAME		= philo
-BONUS_NAME	= 
+BONUS_NAME	=
 
 ### DIR ###
 DIRSRC		= ./
@@ -55,7 +55,7 @@ SHARE_OBJS	= ${addprefix $(OBJ_SRC),$(SHARE_SRCS:.c=.o)}
 ### COMPILATION ###
 CC		= gcc
 RM		= rm -f
-CFLAGS	= -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -g #-fsanitize=address
 
 ### COLORS ###
 NOC		= \033[0m

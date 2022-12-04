@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 13:12:52 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/04 17:34:56 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/04 19:35:51 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	join_threads(t_env *env)
 		i++;
 	}
 	pthread_join(env->checker, NULL);
-	printf("end\n");
 	return (TRUE);
 }
 
