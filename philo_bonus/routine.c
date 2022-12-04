@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:39:27 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/02 00:50:11 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/02 01:19:10 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ void	routine(t_env *env)
 		|| env->input.num_must_eat == -1)
 	{
 		eat(env);
+		sem_post(env->forks);
+		sem_post(env->forks);
 		env->philo.time_to_die = get_time();
-		sem_post(env->forks);
-		sem_post(env->forks);
 		if (!(env->philo.eat_count < env->input.num_must_eat
 				|| env->input.num_must_eat == -1))
 			break ;

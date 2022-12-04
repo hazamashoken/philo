@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:32:11 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/01 14:32:19 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/02 01:36:58 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ void	init_env(t_env *env)
 	env->philo.id = 0;
 	env->forks = SEM_FAILED;
 	env->table = SEM_FAILED;
+	env->print = SEM_FAILED;
 }

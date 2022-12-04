@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 12:05:22 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/16 10:58:05 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/03 21:12:26 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ int	one_philo(t_env *env)
 {
 	if (pthread_mutex_init(&env->write, NULL) != FALSE)
 		return (FALSE);
-	env->t0 = get_time();
 	philo_print(env, 1, LEFT_FORK, BLUE);
-	exec_action(env->input.time_to_die / 1000);
-	philo_print(env, 1, DIED, RED);
+	usleep(env->input.time_to_eat * 1000);
+	printf("%s%d%-8s %d %-30s%s\n",
+		RED, env->input.time_to_die, " ms", 1, DIED, RESET);
 	env_free(env);
 	return (TRUE);
 }

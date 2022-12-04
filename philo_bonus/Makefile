@@ -6,7 +6,7 @@
 #    By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 15:41:04 by tliangso          #+#    #+#              #
-#    Updated: 2022/12/01 18:21:19 by tliangso         ###   ########.fr        #
+#    Updated: 2022/12/02 01:30:58 by tliangso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ SHARE_OBJS	= ${addprefix $(OBJ_SRC),$(SHARE_SRCS:.c=.o)}
 ### COMPILATION ###
 CC		= gcc
 RM		= rm -f
-CFLAGS	= -Wall -Wextra -Werror -g -pthread -fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -g -pthread #-fsanitize=address
 
 ### COLORS ###
 NOC		= \033[0m

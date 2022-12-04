@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 12:21:35 by tliangso          #+#    #+#             */
-/*   Updated: 2022/11/30 21:53:16 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/02 01:30:20 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define RIGHT_FORK "has taken a fork"
 # define DIED "died"
 
-enum {
+enum e_philo{
 	PHILO_DIED,
 	PHILO_DONE
 };

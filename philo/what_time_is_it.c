@@ -6,21 +6,11 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 14:37:53 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/01 15:15:39 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/04 19:27:52 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"philo.h"
-
-long long	delta_time(long long time)
-{
-	struct timeval	tv;
-	long long		delta;
-
-	gettimeofday(&tv, NULL);
-	delta = (tv.tv_sec * 1000) + (tv.tv_usec / 1000);
-	return (delta - time);
-}
 
 long long	get_time(void)
 {
@@ -30,18 +20,20 @@ long long	get_time(void)
 	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
-void	exec_action(long long time)
+long long	delta_time(long long time)
 {
-	my_usleep(time);
+	return (get_time() - time);
 }
 
-void	my_usleep(long long time)
+void	my_usleep(long long time, t_env *env)
 {
 	long long	start;
 
 	start = get_time();
 	while (get_time() - start < time)
 	{
-		usleep(200);
+		if (env->philo_dead == TRUE)
+			break ;
+		usleep(100);
 	}
 }

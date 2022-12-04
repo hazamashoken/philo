@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 13:12:52 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/01 15:27:31 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/04 17:34:56 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@ int	join_threads(t_env *env)
 	i = 0;
 	while (i < env->input.num_philo)
 	{
-		if (pthread_join(env->philo[i].thread, NULL) != FALSE)
-			return (FALSE);
+		pthread_join(env->philo[i].thread, NULL);
 		i++;
 	}
-	if (pthread_join(env->checker, NULL) != FALSE)
-		return (FALSE);
+	pthread_join(env->checker, NULL);
+	printf("end\n");
 	return (TRUE);
 }
 
@@ -54,9 +53,12 @@ int	create_threads(t_env *env)
 	while (i < env->input.num_philo)
 	{
 		env->n_thread = i;
+		env->philo[i].time_to_die = get_time();
 		if (pthread_create(&env->philo[i].thread, NULL, &routine, env) != FALSE)
 			return (FALSE);
-		i++;
+		i += 2;
+		if (i >= env->input.num_of_times_eat && i % 2 == 0)
+			i = 1;
 		usleep(10);
 	}
 	if (pthread_create(&env->checker, NULL, &anyone_die_yet, env) != FALSE)

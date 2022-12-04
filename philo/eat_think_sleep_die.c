@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 12:30:02 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/01 23:06:23 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/04 19:28:52 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	philo_sleep(t_env *env, int i)
 {
 	if (philo_print(env, env->philo[i].id, SLEEP, PINK) == FALSE)
 		return (FALSE);
-	exec_action(env->input.time_to_sleep);
+	my_usleep(env->input.time_to_sleep, env);
 	return (TRUE);
 }
 
@@ -55,7 +55,7 @@ int	philo_eat(t_env *env, int i)
 	if (philo_print(env, env->philo[i].id, EAT, YELLOW) == FALSE)
 		return (FALSE);
 	env->philo[i].time_to_die = get_time();
-	exec_action(env->input.time_to_eat);
+	my_usleep(env->input.time_to_eat, env);
 	drop_forks(env, i);
 	return (TRUE);
 }
@@ -67,8 +67,6 @@ int	are_you_dead(t_env *env, int *i)
 	if (*i == env->input.num_philo)
 		*i = 0;
 	time = delta_time(env->philo[*i].time_to_die);
-	// printf("time: %lld %d\n", time, env->input.time_to_die);
-
 	if (time > env->input.time_to_die)
 	{
 		philo_print(env, env->philo[*i].id, DIED, RED);

@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 12:03:28 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/01 15:27:57 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/03 20:44:05 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,7 @@ int			destory_threads(t_env *env);
 //what_time_is_it.c
 long long	get_time(void);
 long long	delta_time(long long time);
-void		exec_action(long long time);
-void		my_usleep(long long time);
+void		my_usleep(long long time, t_env *env);
 
 //fork_you.c
 void		unlock_forks(t_env *env);
