@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:32:48 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/02 01:35:35 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/06 23:20:30 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,9 @@ int	my_sleep(t_env *env, int time)
 	long long	start;
 
 	start = get_time();
-	while (get_time() - start < time)
+	while (get_time() - start < time && !env->philo_dead)
 	{
-		if (delta_time(env->philo.time_to_die) > env->input.time_to_die)
-			env->philo_dead = 1;
-		usleep(500);
+		usleep(200);
 	}
 	return (EXIT_SUCCESS);
 }

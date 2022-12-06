@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:36:15 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/01 14:36:29 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/06 23:08:55 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int	exit_failure(t_env *env)
 		sem_close(env->table);
 	if (env->pid != NULL)
 		free(env->pid);
-	printf("error\n");
+	printf("%s%s%s", YELLOW, HELP, RESET);
 	return (EXIT_FAILURE);
 }

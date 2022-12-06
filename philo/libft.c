@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 12:19:18 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/14 12:28:06 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:48:31 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int	ft_strlen(const char *str)
 
 void	env_free(t_env *env)
 {
-	free(env->philo);
-	free(env->forks);
+	if (env->philo)
+		free(env->philo);
+	if (env->forks)
+		free(env->forks);
 }
