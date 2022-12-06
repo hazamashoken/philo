@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 13:12:52 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/04 19:35:51 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/07 02:31:55 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	create_threads(t_env *env)
 		if (pthread_create(&env->philo[i].thread, NULL, &routine, env) != FALSE)
 			return (FALSE);
 		i += 2;
-		if (i >= env->input.num_of_times_eat && i % 2 == 0)
+		if (i > env->input.num_philo && i % 2 == 0)
 			i = 1;
 		usleep(10);
 	}
