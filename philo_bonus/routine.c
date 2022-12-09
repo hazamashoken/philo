@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:39:27 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/09 22:14:15 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/09 23:43:13 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ static void	eat(t_env *env)
 	take_fork(env);
 	printf("%s%lld %d is eating%s\n",
 		GREEN, delta_time(env->t0), env->philo.id, RESET);
+	env->philo.time_to_die = get_time();
 	my_sleep(env, env->input.time_to_eat);
 	env->philo.eat_count++;
 	sem_post(env->forks);
 	sem_post(env->forks);
-	env->philo.time_to_die = get_time();
 }
 
 static void	*monitor(void *arg)
