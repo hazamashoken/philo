@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 12:05:22 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/06 23:08:44 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/09 14:21:46 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ void	init_one(t_env *env)
 void	init_env(t_env *env)
 {
 	env->n_thread = 0;
-	env->philo_dead = 0;
 	env->t0 = 0;
 	env->philo = NULL;
 	env->checker = NULL;
 	env->forks = NULL;
+	env->philo_dead = FALSE;
 }
 
 int	main(int argc, char **argv)
@@ -63,8 +63,7 @@ int	main(int argc, char **argv)
 	else
 		if (create_threads(&env) == FALSE)
 			return (EXIT_FAILURE);
-	if (destory_threads(&env) == FALSE)
-		return (EXIT_FAILURE);
+	destory_threads(&env);
 	env_free(&env);
 	return (EXIT_SUCCESS);
 }

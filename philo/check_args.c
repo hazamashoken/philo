@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 12:33:01 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/06 23:14:44 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/09 22:25:35 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 static void	args_errors(int argc, t_env *env)
 {
 	if (!env->input.num_philo)
-		printf("%s%s%s\n", PINK, "Error: Invalid number of philo\n", RESET);
+		printf("%s%s%s\n", PINK,
+			"Error: Invalid number of philo (1-200)\n", RESET);
 	if (!env->input.time_to_die)
-		printf("%s%s%s\n", PINK, "Error: Invalid time to die\n", RESET);
+		printf("%s%s%s\n", PINK, "Error: Invalid time to die (60<=)\n", RESET);
 	if (!env->input.time_to_eat)
-		printf("%s%s%s\n", PINK, "Error: Invalid time to eat\n", RESET);
+		printf("%s%s%s\n", PINK, "Error: Invalid time to eat (60<=)\n", RESET);
 	if (!env->input.time_to_sleep)
-		printf("%s%s%s\n", PINK, "Error: Invalid time to sleep\n", RESET);
+		printf("%s%s%s\n", PINK, "Error: Invalid time to sleep (60<=)\n", RESET);
 	if (argc == 6 && !env->input.num_of_times_eat)
-		printf("%s%s%s\n", PINK, "Error: Invalid number of time to eat\n", RESET);
+		printf("%s%s%s\n", PINK,
+			"Error: Invalid number of time to eat (1<=)\n", RESET);
 }
 
 static int	check_input(t_env *env)

@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 12:03:28 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/03 20:44:05 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/07 12:39:16 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int			destory_threads(t_env *env);
 //what_time_is_it.c
 long long	get_time(void);
 long long	delta_time(long long time);
-void		my_usleep(long long time, t_env *env);
+void		my_usleep(long long time, t_env *env, int i);
 
 //fork_you.c
 void		unlock_forks(t_env *env);
@@ -89,6 +89,7 @@ int			philo_think(t_env *env, int i);
 int			philo_sleep(t_env *env, int i);
 int			philo_eat(t_env *env, int i);
 int			are_you_dead(t_env *env, int *i);
+int			drop_forks(t_env *env, int i);
 
 //simon_say.c
 int			philo_print(t_env *env, int id, char *status, char *color);

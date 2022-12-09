@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:31:00 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/06 23:09:19 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/09 22:22:32 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ static void	args_errors(t_env *env)
 		printf("%s%s%s\n", PINK, "Error: Invalid \
 			number of philo (1-200)\n", RESET);
 	if (!env->input.time_to_die)
-		printf("%s%s%s\n", PINK, "Error: Invalid time to die (60<=)\n", RESET);
+		printf("%s%s%s\n", PINK, "Error: Invalid time to die (60>=)\n", RESET);
 	if (!env->input.time_to_eat)
-		printf("%s%s%s\n", PINK, "Error: Invalid time to eat (60<=)\n", RESET);
+		printf("%s%s%s\n", PINK, "Error: Invalid time to eat (60>=)\n", RESET);
 	if (!env->input.time_to_sleep)
-		printf("%s%s%s\n", PINK, "Error: Invalid time to sleep (60<=)\n", RESET);
+		printf("%s%s%s\n", PINK, "Error: Invalid time to sleep (60>=)\n", RESET);
 	if (env->input.num_must_eat != -1 && env->input.num_must_eat < 0)
 		printf("%s%s%s\n", PINK, "Error: Invalid \
 			number of time to eat (1<=)\n", RESET);

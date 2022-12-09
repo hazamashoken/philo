@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 14:37:53 by tliangso          #+#    #+#             */
-/*   Updated: 2022/12/04 19:27:52 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:04:51 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,29 @@ long long	delta_time(long long time)
 	return (get_time() - time);
 }
 
-void	my_usleep(long long time, t_env *env)
+void	drop_all_forks(t_env *env)
+{
+	int	i;
+
+	i = 1;
+	while (i <= env->input.num_philo)
+		drop_forks(env, i++);
+}
+
+void	my_usleep(long long time, t_env *env, int i)
 {
 	long long	start;
 
 	start = get_time();
 	while (get_time() - start < time)
 	{
-		if (env->philo_dead == TRUE)
+		if (env->philo_dead)
+		{
+			destory_threads(env);
+			drop_forks(env, i);
+			pthread_mutex_unlock(&env->table);
 			break ;
+		}
 		usleep(100);
 	}
 }
